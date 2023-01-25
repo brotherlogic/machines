@@ -1,0 +1,11 @@
+---
+- name: Initialize the host machine
+  hosts: host
+  tasks:
+  - name: Add a cron entry to update all machines every week
+    ansible.builtin.cron:
+      name: "Update Machines"
+      minute: "0"
+      hour: "2"
+      weekday: "0"
+      job: "ansible-playbook --vault-password-file=/home/simon/machines/.vault_pass /home/simon/machines/update.yml"
