@@ -14,3 +14,9 @@
       name: "Update Machines"
       minute: "*/5"
       job: "/home/simon/machines/run.sh"
+  - name: Suppress ansible output
+    ansible.builtin.blockinfile:
+      path: /home/simon/.ansible.cfg
+      block: |
+        [defaults]
+        stdout_callback = actionable

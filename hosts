@@ -8,3 +8,7 @@ rose
 [apt]
 toru
 rose
+mdisplay
+
+[rasberrypi]
+mdisplay
