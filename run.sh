@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 cd /home/simon/machines
-git fetch -p
+git fetch -pq
 git merge origin/main
 if diff chead .git/refs/heads/main; then
 else
