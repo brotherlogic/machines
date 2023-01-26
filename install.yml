@@ -23,3 +23,10 @@
       apt:
         update-cache: yes
         name: kubectl
+- name: Setup *all* machines
+  hosts: all
+  become: true
+  vars_files:
+  - secret
+  tasks:
+    - include: install-exporter.yml 

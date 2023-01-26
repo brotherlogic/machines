@@ -1,0 +1,5 @@
+- name: Install needed entities
+  apt:
+    name: 
+    - emacs
+    - prometheus-node-exporter

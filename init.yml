@@ -19,4 +19,4 @@
       path: /home/simon/.ansible.cfg
       block: |
         [defaults]
-        stdout_callback = actionable
+        inventory  = /home/simon/machines/hosts
