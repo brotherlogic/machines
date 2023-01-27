@@ -17,7 +17,3 @@
   apt:
     update-cache: yes
     name: kubectl
-- name: Sync across the .kube config
-  ansible.posix.synchronize:
-    src: /home/simon/.kube
-    dest: /home/simon/.kube
