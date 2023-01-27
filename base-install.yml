@@ -1,0 +1,5 @@
+- name: Basic set of packages we should have on each machine
+  apt:
+    name: 
+    - emacs
+    - ansible
