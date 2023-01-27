@@ -6,6 +6,7 @@
   tasks:
     - include: install-kubectl.yml
     - include: install-flex.yml
+    - include: base-install.yml
 - name: Setup *all* machines
   hosts: all
   become: true
