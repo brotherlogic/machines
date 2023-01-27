@@ -1,4 +1,5 @@
 - name: Sync .kube dir
   ansible.posix.synchronize:
-    src: /home/simon/.kube
+    src: /home/simon/.kube/
     dest: /home/simon/.kube
+    recursive: true
