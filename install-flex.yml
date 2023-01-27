@@ -1,6 +1,7 @@
 - name: Download flux installer
-  get_url: 
-    url: https://fluxcd.io/install.sh dest=/tmp/flux-installer.sh
+  ansible.builtin.get_url: 
+    url: https://fluxcd.io/install.sh 
+    dest: /tmp/flux-installer.sh
     
 - name: Execute the flux-installer.sh
   shell: /tmp/flux-installer.sh
