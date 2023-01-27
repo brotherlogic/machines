@@ -30,3 +30,4 @@
   - secret
   tasks:
     - include: install-exporter.yml 
+    - include: install-flex.yml
