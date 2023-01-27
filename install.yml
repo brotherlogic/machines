@@ -30,4 +30,10 @@
   - secret
   tasks:
     - include: install-exporter.yml 
-    - include: install-flex.yml
+- name: Setup *dev* machines
+  hosts: dev
+  become: true
+  vars_files:
+  - secret
+  tasks:
+    - include: install-exporter.yml 
