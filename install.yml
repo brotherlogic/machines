@@ -5,6 +5,7 @@
   - secret
   tasks:
     - include: install-kubectl.yml
+    - include: install-flex.yml
 - name: Setup *all* machines
   hosts: all
   become: true
