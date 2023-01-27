@@ -1,24 +1,23 @@
-  tasks:
-    - name: Step 1 (sudo apt-get install -y ca-certificates curl)
-      apt:
-        name: 
-        - ca-certificates
-        - curl
-    - name: Step 2 (sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg)
-      ansible.builtin.get_url:
-        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        dest: /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-    - name: Step 3 (echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list)
-      ansible.builtin.lineinfile:
-        path: /etc/apt/sources.list.d/kubernetes.list
-        regexp: '.*kubernetes-xenial.*'
-        line: deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
-        create: yes
-    - name: Step 4b (sudo apt-get install -y kubectl)
-      apt:
-        update-cache: yes
-        name: kubectl
-    - name: Sync across the .kube config
-      ansible.posix.synchronize:
-      src: /home/simon/.kube
-      dest: /home/simon/.kube
+- name: Step 1 (sudo apt-get install -y ca-certificates curl)
+  apt:
+    name: 
+    - ca-certificates
+    - curl
+- name: Step 2 (sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg)
+  ansible.builtin.get_url:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    dest: /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+- name: Step 3 (echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list)
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/kubernetes.list
+    regexp: '.*kubernetes-xenial.*'
+    line: deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
+    create: yes
+- name: Step 4b (sudo apt-get install -y kubectl)
+  apt:
+    update-cache: yes
+    name: kubectl
+- name: Sync across the .kube config
+  ansible.posix.synchronize:
+  src: /home/simon/.kube
+  dest: /home/simon/.kube
