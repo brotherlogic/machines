@@ -3,3 +3,4 @@
     name: 
     - emacs
     - ansible
+    - apache2-utils
