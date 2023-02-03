@@ -12,3 +12,7 @@ mdisplay
 
 [rasberrypi]
 mdisplay
+focus
+
+[argondisplay]
+focus
