@@ -1,0 +1,17 @@
+- name: Download argon installer
+  ansible.builtin.get_url: 
+    url: https://download.argon40.com/podsystem.sh
+    dest: /tmp/pod.sh
+    
+- name: Make exectuable
+  file:
+    path: /tmp/pod.sh 
+    mode: a+x
+
+- name: Execute the flux-installer.sh
+  shell: /tmp/pod.sh
+
+- name: Remove the flux-installer.sh
+  file: 
+    path: /tmp/pod.sh 
+    state: absent
