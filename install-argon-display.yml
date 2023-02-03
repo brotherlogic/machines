@@ -8,10 +8,10 @@
     path: /tmp/pod.sh 
     mode: a+x
 
-- name: Execute the flux-installer.sh
+- name: Execute the argon installer
   shell: /tmp/pod.sh
 
-- name: Remove the flux-installer.sh
+- name: Remove the argon installer
   file: 
     path: /tmp/pod.sh 
     state: absent
