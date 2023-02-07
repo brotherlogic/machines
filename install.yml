@@ -4,6 +4,7 @@
   vars_files:
   - secret
   tasks:
+    - include: install-node.yml
     - include: install-kubectl.yml
     - include: install-flex.yml
     - include: base-install.yml
