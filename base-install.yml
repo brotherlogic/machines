@@ -4,3 +4,6 @@
     - emacs
     - ansible
     - apache2-utils
+- name: Install firebase CLI
+  npm:
+    name: firebase-tools
