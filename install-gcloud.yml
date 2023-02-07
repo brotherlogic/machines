@@ -1,0 +1,21 @@
+- name: Install apt packages
+  apt:
+    name:
+      - apt-transport-https 
+      - ca-certificates 
+      - gnupg
+- name: Add gcloud GPG Key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+- name: add gcloud repository to apt
+  apt_repository:
+    repo: deb https://packages.cloud.google.com/apt cloud-sdk main
+    state: present
+- name: install gcloud
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+      - google-cloud-cli

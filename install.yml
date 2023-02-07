@@ -8,6 +8,7 @@
     - include: install-flex.yml
     - include: base-install.yml
     - include: install-docker.yml
+    - include: install-gcloud.yml
 - name: Setup *all* machines
   hosts: all
   become: true
