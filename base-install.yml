@@ -7,3 +7,4 @@
 - name: Install firebase CLI
   npm:
     name: firebase-tools
+    global: yes
