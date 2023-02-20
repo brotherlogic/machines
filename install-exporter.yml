@@ -4,6 +4,7 @@
     - emacs
     - prometheus-node-exporter
 - name: Configure exporter to run on port 9110
-  path: /etc/default/prometheus-node-exporter
-  regexp: '^ARGS'
-  line: ARGS="--web.listen-address=:9110"
+  ansible.builtin.lineinfile:
+    path: /etc/default/prometheus-node-exporter
+    regexp: '^ARGS'
+    line: ARGS="--web.listen-address=:9110"
