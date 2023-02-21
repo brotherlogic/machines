@@ -17,9 +17,6 @@
   - secret
   tasks:
     - include: install-exporter.yml 
-- name: Setup local stuff for dev machines
-  hosts: dev
-  tasks:
     - include: kube-sync.yml
 - name: Setup argon displays
   hosts: argondisplay
