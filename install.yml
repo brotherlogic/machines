@@ -17,6 +17,9 @@
   - secret
   tasks:
     - include: install-exporter.yml 
+- name: Sync *all* machines
+  hosts: all
+  tasks:
     - include: kube-sync.yml
 - name: Setup argon displays
   hosts: argondisplay
