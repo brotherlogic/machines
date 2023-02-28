@@ -11,7 +11,7 @@
       job: "ansible-playbook --vault-password-file=/home/simon/machines/.vault_pass /home/simon/machines/update.yml"
   - name: Add a cron entry to run the install script if the git repo changes
     ansible.builtin.cron:
-      name: "Update Machines"
+      name: "Install Machines"
       minute: "*/5"
       job: "/home/simon/machines/run.sh"
   - name: Suppress ansible output
