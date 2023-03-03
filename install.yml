@@ -25,3 +25,4 @@
   hosts: argondisplay
   tasks:
     - include: install-argon-display.yml
+ 
