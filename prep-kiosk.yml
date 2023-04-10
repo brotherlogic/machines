@@ -1,7 +1,7 @@
 - name: Creating a file with content
   copy:
-  dest: "/home/simon/.config/lxsession/LXDE-pi/autostart"
-  content: |
+   dest: "/home/simon/.config/lxsession/LXDE-pi/autostart"
+   content: |
         @lxpanel --profile LXDE-pi
         @pcmanfm --desktop --profile LXDE-pi
         point-rpi
