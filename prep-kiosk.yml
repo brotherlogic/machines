@@ -1,3 +1,8 @@
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/simon/.config/lxsession/LXDE-pi
+    state: directory
+    mode: '0755'
 - name: Creating a file with content
   copy:
    dest: "/home/simon/.config/lxsession/LXDE-pi/autostart"
