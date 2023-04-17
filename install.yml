@@ -23,6 +23,7 @@
     - include: kube-sync.yml
 - name: Setup argon displays
   hosts: argondisplay
+  become: true
   tasks:
     - include: install-argon-display.yml
     - include: prep-kiosk.yml
