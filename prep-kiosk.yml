@@ -1,4 +1,5 @@
 - name: Prep install
+  become: true
   apt:
     name: 
     - rpi-chromium-mods
