@@ -26,4 +26,8 @@
   tasks:
     - include: install-argon-display.yml
     - include: prep-kiosk.yml
+- name: Run receipt printer specific stuff
+  hosts: receiptprinter
+  tasks:
+    - include: install-receiptprinter.yml
  
