@@ -24,3 +24,6 @@ focus
 [cluster]
 kclust1
 kclust2
+
+[receiptprinter]
+cd
