@@ -5,13 +5,12 @@
       - curl
       - gnupg
       - lsb-release
-- name: Add node GPG Key
-  apt_key:
-    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    state: present
-- name: add node repository to apt
-  apt_repository:
-    repo: deb https://deb.nodesource.com/node_19.x jammy main
+- name: run GPG
+  ansible.builtin.get_url:
+    url:  https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    dest: /etc/apt/trusted.gpg.d/node.asc
+    mode: '0644'
+    force: true
 - name: install node
   apt:
     name: "{{item}}"

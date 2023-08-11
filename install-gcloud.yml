@@ -4,14 +4,12 @@
       - apt-transport-https 
       - ca-certificates 
       - gnupg
-- name: Add gcloud GPG Key
-  apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
-- name: add gcloud repository to apt
-  apt_repository:
-    repo: deb https://packages.cloud.google.com/apt cloud-sdk main
-    state: present
+- name: run GPG
+  ansible.builtin.get_url:
+    url:  https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    dest: /etc/apt/trusted.gpg.d/gcloud.asc
+    mode: '0644'
+    force: true
 - name: install gcloud
   apt:
     name: "{{item}}"
