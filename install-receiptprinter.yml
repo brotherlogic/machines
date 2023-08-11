@@ -2,4 +2,4 @@
   ansible.builtin.cron:
     name: "run print"
     minute: "*/2"
-    job: "go install github.com/brotherlogic/rprinter@latest && rprinter"
+    job: "go install github.com/brotherlogic/rprinter@latest && /home/simon/go/bin/rprinter"
