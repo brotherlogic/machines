@@ -12,16 +12,17 @@ mdisplay
 
 [rasberrypi]
 mdisplay
-focus
 argon
 newrunner
 framethree
 cd
 
 [argondisplay]
-focus
 
 [cluster]
 kclust1
 kclust2
 kclust3
+
+[receiptprinter]
+cd

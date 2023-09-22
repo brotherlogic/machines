@@ -5,14 +5,12 @@
       - curl
       - gnupg
       - lsb-release
-- name: Add docker GPG Key
-  apt_key:
+- name: run GPG
+  ansible.builtin.get_url:
     url: https://download.docker.com/linux/ubuntu/gpg
-    state: present
-- name: add docker repository to apt
-  apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu jammy stable
-    state: present
+    dest: /etc/apt/trusted.gpg.d/docker.asc
+    mode: '0644'
+    force: true
 - name: install docker
   apt:
     name: "{{item}}"
