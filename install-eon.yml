@@ -4,25 +4,26 @@
   register: omv_rules
 
 - name: Download eon installer
-  when: omv_rules.stat.exists == false
   ansible.builtin.get_url: 
     url: https://download.argon40.com/argoneon.sh
     dest: /tmp/eon-installer.sh
+  when: omv_rules.stat.exists == false
   
 - name: Make exectuable
-  when: omv_rules.stat.exists == false
   file:
     path: /tmp/eon-installer.sh 
     mode: a+x
+  when: omv_rules.stat.exists == false
 
 - name: Execute the installer
-  when: omv_rules.stat.exists == false
   shell: /tmp/eon-installer.sh
   args:
     creates: /usr/sbin/omv-engined
+  when: omv_rules.stat.exists == false
 
 - name: Remove the installer
-  when: omv_rules.stat.exists == false
   file: 
     path: /tmp/eon-installer.sh 
     state: absent
+  when: omv_rules.stat.exists == false
+
