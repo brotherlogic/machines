@@ -1,0 +1,17 @@
+- name: Download omv installer
+  ansible.builtin.get_url: 
+    url: https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master/inasll
+    dest: /tmp/omv-installer.sh
+
+- name: Make exectuable
+  file:
+    path: /tmp/omv-installer.sh 
+    mode: a+x
+
+- name: Execute the installer
+  shell: /tmp/omv-installer.sh
+
+- name: Remove the installer
+  file: 
+    path: /tmp/omv-installer.sh 
+    state: absent
