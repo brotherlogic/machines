@@ -34,3 +34,4 @@
   hosts: argoneon
   tasks:
     - include: install-eon.yml
+    - include: install-omv.yml
