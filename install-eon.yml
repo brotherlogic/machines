@@ -1,3 +1,4 @@
+
 - name: Download eon installer
   ansible.builtin.get_url: 
     url: https://download.argon40.com/argoneon.sh
@@ -10,6 +11,7 @@
 
 - name: Execute the installer
   shell: /tmp/eon-installer.sh
+  creates: /usr/sbin/omv-engined
 
 - name: Remove the installer
   file: 
