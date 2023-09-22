@@ -1,17 +1,26 @@
+- name: check if rules file exists
+  stat: 
+    path: /usr/sbin/omv-engined
+  register: omv_rules
+
 - name: Download omv installer
   ansible.builtin.get_url: 
     url: https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master/install
     dest: /tmp/omv-installer.sh
+  when: omv_rules.stat.exists
 
 - name: Make exectuable
   file:
     path: /tmp/omv-installer.sh 
     mode: a+x
+  when: omv_rules.stat.exists
 
 - name: Execute the installer
   shell: /tmp/omv-installer.sh
+  when: omv_rules.stat.exists
 
 - name: Remove the installer
   file: 
     path: /tmp/omv-installer.sh 
     state: absent
+  when: omv_rules.stat.exists

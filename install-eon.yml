@@ -1,6 +1,6 @@
 - name: check if rules file exists
   stat: 
-    path: /usr/sbin/omv-engined
+    path: /usr/bin/argon-config
   register: omv_rules
 
 - name: /test
