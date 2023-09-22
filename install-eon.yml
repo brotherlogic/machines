@@ -1,0 +1,17 @@
+- name: Download eon installer
+  ansible.builtin.get_url: 
+    url: https://download.argon40.com/argoneon.sh
+    dest: /tmp/eon-installer.sh
+
+- name: Make exectuable
+  file:
+    path: /tmp/eon-installer.sh 
+    mode: a+x
+
+- name: Execute the installer
+  shell: /tmp/eon-installer.sh
+
+- name: Remove the installer
+  file: 
+    path: /tmp/eon-installer.sh 
+    state: absent

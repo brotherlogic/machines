@@ -30,4 +30,7 @@
   hosts: receiptprinter
   tasks:
     - include: install-receiptprinter.yml
- 
+- name: Setup Eon Nas
+  hosts: argoneon
+  tasks:
+    - include: install-eon.yml
