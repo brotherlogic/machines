@@ -3,6 +3,11 @@
     path: /usr/sbin/omv-engined
   register: omv_rules
 
+- name: /test
+  debug:
+    msg: "Found the file"
+  when: omv_rules.stat.exists
+
 - name: Download eon installer
   ansible.builtin.get_url: 
     url: https://download.argon40.com/argoneon.sh
