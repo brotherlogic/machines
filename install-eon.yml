@@ -11,7 +11,8 @@
 
 - name: Execute the installer
   shell: /tmp/eon-installer.sh
-  creates: /usr/sbin/omv-engined
+  args:
+    creates: /usr/sbin/omv-engined
 
 - name: Remove the installer
   file: 
