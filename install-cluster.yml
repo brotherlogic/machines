@@ -1,0 +1,5 @@
+- name: Install apt packages
+  apt:
+    name:
+      - lvm2
+      - lsof

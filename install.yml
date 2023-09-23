@@ -36,3 +36,8 @@
   tasks:
     - include: install-eon.yml
     - include: install-omv.yml
+- name: Setup cluster machines
+  hosts: cluster
+  become: true
+  tasks:
+    - include: install-cluster.yml
