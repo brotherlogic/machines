@@ -41,3 +41,8 @@
   become: true
   tasks:
     - include: install-cluster.yml
+- name: Setup ubuntu machines
+  hosts: ubuntu
+  become: true
+  tasks:
+    - include: install-ubuntu.yml
