@@ -3,3 +3,4 @@
     name:
       - lvm2
       - lsof
+      - nfs-common
