@@ -3,6 +3,7 @@
     name: 
     - emacs
     - prometheus-node-exporter
+    - lm-sensors
     update_cache: yes
 - name: Configure exporter to run on port 9110
   ansible.builtin.lineinfile:
