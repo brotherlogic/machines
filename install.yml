@@ -46,3 +46,8 @@
   become: true
   tasks:
     - include: install-ubuntu.yml
+- name: Setup PoE on Ubunutu machines
+  hosts: poeubuntu
+  become: true
+  tasks:
+    - include: set-poe-fan-speeds-ubuntu.yml

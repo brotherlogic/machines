@@ -1,0 +1,5 @@
+- name: Set temp0
+  ansible.builtin.lineinfile:
+    path: /boot/firmware/config.txt
+    regexp: '^.*poe_fan_temp0.*'
+    line: dtparam=poe_fan_temp0=60000
