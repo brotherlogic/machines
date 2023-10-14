@@ -18,3 +18,8 @@
     path: /boot/firmware/config.txt
     regexp: '^.*poe_fan_temp3.*'
     line: dtparam=poe_fan_temp3=78000
+  register: yum_update
+- name: Reboot if needed
+  ansible.builtin.reboot:
+  when:
+    - yum_update.changed
