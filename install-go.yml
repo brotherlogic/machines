@@ -1,0 +1,21 @@
+- name: golang installation
+  hosts: my_server
+  vars:
+     - version: 1.20.1
+  tasks:
+    - name: Check existing version
+      ansible.builtin.command: go version
+      register: cver
+
+    - name: Install new version of go
+      block:
+       - name: Download go tar file
+         command: wget https://go.dev/dl/go{{version}}.linux-amd64.tar.gz
+
+       - name: Extract and move new go folder to /usr/local
+         command: tar -C /usr/lib/go-{{version}} -xzf go{{version}}.linux-amd64.tar.gz
+         become: true
+
+       - name: Delete downloaded tar file
+         shell: rm -rf go{{version}}.linux-amd64.tar.gz*
+      when: cver != "go version go{{version}} linux/amd64"
