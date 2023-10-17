@@ -1,5 +1,4 @@
 - name: golang installation
-  hosts: my_server
   vars:
      - version: 1.20.1
   tasks:
