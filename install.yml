@@ -47,3 +47,9 @@
   become: true
   tasks:
     - include: install-ubuntu.yml
+    - include: set-poe-fan-speeds-ubuntu.yml
+- name: Setup raspberrypi machines
+  hosts: raspberrypi
+  become: true
+  tasks:
+    - include: set-poe-fan-speeds-rpi.yml
