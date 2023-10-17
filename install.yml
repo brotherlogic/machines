@@ -3,6 +3,8 @@
   become: true
   vars_files:
   - secret
+  vars:
+    - goversion: 1.20.1
   tasks:
     - include: install-node.yml
     - include: install-kubectl.yml
