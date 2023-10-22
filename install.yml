@@ -39,6 +39,11 @@
   tasks:
     - include: install-eon.yml
     - include: install-omv.yml
+- name: Setup One Nas
+  hosts: argonone
+  become: true
+  tasks:
+    - include: install-one.yml
 - name: Setup cluster machines
   hosts: cluster
   become: true

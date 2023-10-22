@@ -1,0 +1,34 @@
+- name: check if rules file exists
+  stat: 
+    path: /usr/bin/argonone-config
+  register: omv_rules
+
+- name: /test
+  debug:
+    msg: "Found the file"
+  when: omv_rules.stat.exists
+
+- name: Download one installer
+  ansible.builtin.get_url: 
+    url: https://download.argon40.com/argon1.sh
+    dest: /tmp/one-installer.sh
+  when: omv_rules.stat.exists == false
+  
+- name: Make exectuable
+  file:
+    path: /tmp/one-installer.sh 
+    mode: a+x
+  when: omv_rules.stat.exists == false
+
+- name: Execute the installer
+  shell: /tmp/one-installer.sh
+  args:
+    creates: /usr/sbin/omv-engined
+  when: omv_rules.stat.exists == false
+
+- name: Remove the installer
+  file: 
+    path: /tmp/one-installer.sh 
+    state: absent
+  when: omv_rules.stat.exists == false
+
