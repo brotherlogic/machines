@@ -1,9 +1,11 @@
 - name: Basic set of packages we should have on each machine
   apt:
-    name: 
+    name:
+    - npm
     - emacs
     - ansible
     - apache2-utils
+    - golang
 - name: Install firebase CLI
   npm:
     name: firebase-tools

@@ -10,7 +10,7 @@
       
     - name: Download go tar file
       ansible.builtin.get_url: 
-        url: https://go.dev/dl/go{{goversion}}.linux-amd64.tar.gz
+        url: https://go.dev/dl/go{{goversion}}.linux-armv6l.tar.gz
         dest: /tmp/go-download.tar.gz
    
     - name: Create unarchive dir
@@ -24,14 +24,26 @@
         dest: /usr/lib/go-{{goversion}}
       become: true
      
-    - name: Make the link
+    - name: Make the links	
       ansible.builtin.file:
-        src: go-{{goversion}}/go/bin/go
+        src: /usr/lib/go-{{goversion}}/go/
+        dest: /usr/lib/go
+        state: link
+
+    - name: Make the links	
+      ansible.builtin.file:
+        src: /usr/lib/go/bin/go
         dest: /usr/bin/go
+        state: link
+
+    - name: Make the links	
+      ansible.builtin.file:
+        src: /usr/lib/go/bin/gofmt
+        dest: /usr/lib/gofmt
         state: link
 
     - name: Delete downloaded tar file
       file: 
-        path: /tmp/go{{goversion}}.linux-amd64.tar.gz
+        path: /tmp/go{{goversion}}.linux-arm64.tar.gz
         state: absent
   when: cver.stdout|string != "go version go1.20.1 linux/amd64"
