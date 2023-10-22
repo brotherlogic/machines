@@ -4,6 +4,10 @@
 
 - name: Install new version of go
   block:
+    - debug: var="{{item}}"
+      with_items:
+      - cver
+      
     - name: Download go tar file
       ansible.builtin.get_url: 
         url: https://go.dev/dl/go{{goversion}}.linux-amd64.tar.gz
@@ -30,4 +34,4 @@
       file: 
         path: /tmp/go{{goversion}}.linux-amd64.tar.gz
         state: absent
-  when: cver|string != "go version go1.20.1 linux/amd64"
+  when: cver.stdout|string != "go version go1.20.1 linux/amd64"
