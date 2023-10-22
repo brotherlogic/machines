@@ -5,12 +5,29 @@
 - name: Install new version of go
   block:
     - name: Download go tar file
-      command: wget https://go.dev/dl/go{{goversion}}.linux-amd64.tar.gz
+      ansible.builtin.get_url: 
+        url: https://go.dev/dl/go{{goversion}}.linux-amd64.tar.gz
+        dest: /tmp/go-download.tar.gz
+   
+    - name: Create unarchive dir
+      file:
+       path: /usr/lib/go-{{goversion}}
+       state: directory
 
     - name: Extract and move new go folder to /usr/local
-      command: tar -C /usr/lib/go-{{goversion}} -xzf go{{goversion}}.linux-amd64.tar.gz
+      ansible.builtin.unarchive:
+        src: /tmp/go-download.tar.gz
+        dest: /usr/lib/go-{{goversion}}
       become: true
+     
+    - name: Make the link
+      ansible.builtin.file:
+        src: go-{{goversion}}/go/
+        dest: /usr/bin/go
+        state: link
 
     - name: Delete downloaded tar file
-      shell: rm -rf go{{goversion}}.linux-amd64.tar.gz*
-  when: cver != "go version go{{goversion}} linux/amd64"
+      file: 
+        path: /tmp/go{{goversion}}.linux-amd64.tar.gz
+        state: absent
+  when: cver|string != "go version go1.20.1 linux/amd64"
