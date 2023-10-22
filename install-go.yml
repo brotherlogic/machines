@@ -22,7 +22,7 @@
      
     - name: Make the link
       ansible.builtin.file:
-        src: go-{{goversion}}/go/
+        src: go-{{goversion}}/go/bin/go
         dest: /usr/bin/go
         state: link
 
