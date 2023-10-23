@@ -10,7 +10,7 @@
       
     - name: Download go tar file
       ansible.builtin.get_url: 
-        url: https://go.dev/dl/go{{goversion}}.linux-armv6l.tar.gz
+        url: https://go.dev/dl/go{{goversion}}.linux-arm64.tar.gz
         dest: /tmp/go-download.tar.gz
    
     - name: Create unarchive dir
@@ -44,6 +44,6 @@
 
     - name: Delete downloaded tar file
       file: 
-        path: /tmp/go{{goversion}}.linux-arm64.tar.gz
+        path: /tmp/go-download.tar.gz
         state: absent
   when: cver.stdout|string != "go version go1.20.1 linux/amd64"
