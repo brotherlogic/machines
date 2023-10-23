@@ -1,7 +1,7 @@
 - name: Basic set of packages we should have on each machine
   apt:
     name:
-    - npm
+#    - npm
     - emacs
     - ansible
     - apache2-utils
