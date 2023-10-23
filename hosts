@@ -3,11 +3,11 @@ toru
 
 [dev]
 toru
-brotherlogic@rooroo
+#brotherlogic@rooroo
 
 [apt]
 toru
-brotherlogic@rooroo
+#brotherlogic@rooroo
 mdisplay
 newrunner
 argon
@@ -24,14 +24,14 @@ argon
 newrunner
 framethree
 cd
-brotherlogic@rooroo
+#brotherlogic@rooroo
 #nas
 
 [argoneon]
 #nas
 
 [argonone]
-brotherlogic@rooroo
+#brotherlogic@rooroo
 
 [argondisplay]
 
