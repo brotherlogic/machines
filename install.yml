@@ -44,6 +44,8 @@
   become: true
   tasks:
     - include: install-one.yml
+  tags:
+    - argon
 - name: Setup cluster machines
   hosts: cluster
   become: true
