@@ -9,6 +9,7 @@
     - tmux
     - zsh
     - gnome-tweaks
+    - protoc-gen-go
 - name: Install firebase CLI
   npm:
     name: firebase-tools
