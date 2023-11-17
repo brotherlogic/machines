@@ -22,7 +22,7 @@
       ansible.builtin.unarchive:
         src: /tmp/go-download.tar.gz
         dest: /usr/lib/go-{{goversion}}
-      become: true
+        remote_src: yes
      
     - name: Make the links	
       ansible.builtin.file:

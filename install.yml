@@ -7,7 +7,7 @@
     - goversion: 1.20.1
   tasks:
     - include: install-node.yml
-    - include: install-kubectl.yml
+#    - include: install-kubectl.yml
     - include: install-flex.yml
     - include: base-install.yml
     - include: install-docker.yml
