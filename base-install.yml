@@ -10,6 +10,7 @@
     - zsh
     - gnome-tweaks
     - protoc-gen-go
+    - cargo
 - name: Install firebase CLI
   npm:
     name: firebase-tools
