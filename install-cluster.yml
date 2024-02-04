@@ -8,7 +8,7 @@
   blockinfile:
     path: /boot/firmware/config.txt
     insertafter: '[all]'
-    marker: "    <!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    marker: "# ANSIBLE MANAGED BLOCK"
     block: |
       dtparam=poe_fan_temp0=65000
       dtparam=poe_fan_temp1=70000
