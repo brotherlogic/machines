@@ -1,6 +1,5 @@
 - name: Install apt packages
   apt:
     name:
-      - linux-modules-extra-6.2.0-1004-raspi
+      #- linux-modules-extra-6.2.0-1004-raspi
       - linux-modules-extra-raspi
-      
