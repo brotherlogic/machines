@@ -4,10 +4,12 @@ toru
 [dev]
 toru
 rooroo
+rosington
 
 [apt]
 toru
 rooroo
+rosington
 mdisplay
 newrunner
 argon
@@ -46,6 +48,7 @@ kclust1
 kclust2
 kclust3
 kclust4
+rosington
 
 [receiptprinter]
 cd
