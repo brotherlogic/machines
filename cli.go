@@ -7,6 +7,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"strings"
 	"time"
 
 	"google.golang.org/grpc"
@@ -42,7 +43,9 @@ func main() {
 	fmt.Printf("[raspberrypi]\n")
 	for _, machine := range resp.GetMachines() {
 		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
-			fmt.Printf("%v\n", ipv4ToString(machine.GetIpv4()))
+			if !strings.Contains(machine.GetHostname(), "homeassistant") {
+				fmt.Printf("%v\n", ipv4ToString(machine.GetIpv4()))
+			}
 		}
 	}
 }
