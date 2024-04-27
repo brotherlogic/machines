@@ -1,0 +1,3 @@
+- name: Install zsh for Ubuntu servers
+  import_tasks: ubuntu.yml
+  when: ansible_facts['os_family']|lower == 'ubuntu'

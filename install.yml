@@ -1,18 +1,10 @@
-- name: Runs updates for all development machines
+- name: Runs updates for all devmachines
   hosts: dev
   become: true
   vars_files:
-    - secret
-  vars:
-    - goversion: 1.20.1
-  tasks:
-    - include: install-node.yml
-    #    - include: install-kubectl.yml
-    - include: install-flex.yml
-    - include: base-install.yml
-    - include: install-docker.yml
-    #    - include: install-gcloud.yml
-    - include: install-go.yml
+  - secret
+  roles:
+    - dev
 - name: Setup *all* machines
   hosts: all
   become: true
