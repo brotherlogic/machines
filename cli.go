@@ -40,7 +40,14 @@ func main() {
 
 	fmt.Printf("[host]\ntoru\n\n")
 
-	fmt.Printf("[raspberrypi]\n")
+	fmt.Printf("[dev]\n")
+	for _, machine := range resp.GetMachines() {
+		if machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_DESKTOP || machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_SERVER {
+			fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+		}
+	}
+
+	fmt.Printf("[\nraspberrypi]\n")
 	for _, machine := range resp.GetMachines() {
 		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
 			if !strings.Contains(machine.GetHostname(), "homeassistant") {

@@ -4,7 +4,7 @@
   vars_files:
   - secret
   roles:
-    - dev
+    - zsh
 - name: Setup *all* machines
   hosts: all
   become: true
