@@ -4,7 +4,7 @@ git fetch -pq
 git merge -q origin/main
 if diff chead .git/refs/heads/main; then
 else
-    export GOROOT=/usr/lib/og
+    export GOROOT=/usr/lib/go
     go build
     ./machines kclust1:31290 > hosts
     if ansible-playbook --vault-password-file=.vault_pass install.yml; then
