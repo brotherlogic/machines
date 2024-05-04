@@ -1,15 +1,15 @@
 # Install ZSH
 - name : Install ZSH
   ansible.builtin.apt:
-    name: "zsh"
-    state: present
+  name: "zsh"
+  state: present
   
 # Ensure oh-my-zsh is present
 - name: Install Oh My Zsh # noqa: latest
-  ansible.builtin.git:
-    repo: https://github.com/ohmyzsh/ohmyzsh.git
-    dest: ~/.oh-my-zsh
-    depth: 1
+    ansible.builtin.git:
+      repo: https://github.com/ohmyzsh/ohmyzsh.git
+      dest: ~/.oh-my-zsh
+      depth: 1
 
 - name: Change user shell to zsh 
   become: true
