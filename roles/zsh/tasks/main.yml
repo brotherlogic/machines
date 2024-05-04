@@ -4,3 +4,4 @@
 - name: Install zsh for Ubuntu servers
   import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
+  ignore_uneachable: true
