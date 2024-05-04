@@ -1,5 +1,5 @@
 # Install ZSH
--name : Install ZSH
+- name : Install ZSH
   ansible.builtin.apt:
   name: "zsh"
   state: present
