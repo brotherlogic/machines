@@ -7,7 +7,12 @@ else
     export GOROOT=/usr/lib/go
     go build
     ./machines kclust1:31290 > hosts
-    if ansible-playbook --vault-password-file=.vault_pass install.yml; then
-      cp .git/refs/heads/main chead
+
+    ansible-playbook --vault-password-file=.vault_pass install.yml
+    
+    if [ $? = 0 ] || [ $? = 4 ]; then
+	cp .git/refs/heads/main chead
+    else
+	echo "EXIT = $?"
     fi
 fi
