@@ -5,6 +5,17 @@
   - secret
   roles:
     - zsh
+  ignore_unreachable: true
+
+- name: Setup raspberrypi machines
+  hosts: raspberrypi
+  become: true
+  tasks:
+    - include: set-poe-fan-speeds-rpi.yml
+      when: ansible_facts['distribution'] == "Raspbian"
+      ignore_unreachable: true
+
+
 - name: Setup *all* machines
   hosts: all
   become: true
@@ -49,9 +60,3 @@
   tasks:
     - include: install-ubuntu.yml
     - include: set-poe-fan-speeds-ubuntu.yml
-- name: Setup raspberrypi machines
-  hosts: raspberrypi
-  become: true
-  tasks:
-    - include: set-poe-fan-speeds-rpi.yml
-      when: ansible_facts['distribution'] == "Raspbian"
