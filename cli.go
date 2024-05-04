@@ -7,6 +7,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 
@@ -20,6 +21,14 @@ func ipv4ToString(ipv4 uint32) string {
 	ip := make(net.IP, 4)
 	binary.BigEndian.PutUint32(ip, ipv4)
 	return ip.String()
+}
+
+func reachable(ip string) bool {
+	out, _ := exec.Command("ping", ip, "-c 5", "-i 3", "-w 10").Output()
+	if strings.Contains(string(out), "Destination Host Unreachable") {
+		return false
+	}
+	return true
 }
 
 func main() {
@@ -43,7 +52,9 @@ func main() {
 	fmt.Printf("[dev]\n")
 	for _, machine := range resp.GetMachines() {
 		if machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_DESKTOP || machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_SERVER {
-			fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+			if reachable(ipv4ToString(machine.GetIpv4())) {
+				fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+			}
 		}
 	}
 
@@ -51,7 +62,9 @@ func main() {
 	for _, machine := range resp.GetMachines() {
 		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
 			if !strings.Contains(machine.GetHostname(), "homeassistant") {
-				fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+				if reachable(ipv4ToString(machine.GetIpv4())) {
+					fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+				}
 			}
 		}
 	}

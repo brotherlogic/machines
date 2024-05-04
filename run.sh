@@ -11,8 +11,8 @@ else
     ansible-playbook --vault-password-file=.vault_pass install.yml
     
     if [ $? = 0 ] || [ $? = 4 ]; then
-	cp .git/refs/heads/main chead
+    	cp .git/refs/heads/main chead
     else
-	echo "EXIT = $?"
+	    echo "EXIT = $?"
     fi
 fi
