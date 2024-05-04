@@ -1,4 +1,4 @@
-- name: Runs updates for all devmachines
+- name: Runs updates for all dev machines
   hosts: dev
   become: true
   vars_files:
