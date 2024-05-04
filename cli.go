@@ -47,7 +47,7 @@ func main() {
 		}
 	}
 
-	fmt.Printf("[\nraspberrypi]\n")
+	fmt.Printf("[raspberrypi]\n")
 	for _, machine := range resp.GetMachines() {
 		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
 			if !strings.Contains(machine.GetHostname(), "homeassistant") {
