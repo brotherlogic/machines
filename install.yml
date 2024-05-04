@@ -6,4 +6,3 @@
   roles:
     - zsh
     - kubectl
-  ignore_unreachable: true
