@@ -5,3 +5,5 @@
     classic: true
 - name: Install recordgetter
   ansible.builtin.command: go install github.com/brotherlogic/recordgetter/recordgetter_cli@latest
+  - name: Install recordcleaner
+  ansible.builtin.command: go install github.com/brotherlogic/recordcleaner/recordcleaner_cli@latest
