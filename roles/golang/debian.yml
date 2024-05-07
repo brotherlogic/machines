@@ -2,3 +2,4 @@
   community.general.snap:
     name:
       - go
+    classic: true
