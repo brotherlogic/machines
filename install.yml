@@ -6,3 +6,4 @@
   roles:
     - zsh
     - kubectl
+    - golang
