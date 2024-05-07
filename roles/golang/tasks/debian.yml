@@ -3,6 +3,10 @@
     name:
       - go
     classic: true
+- name: Go check
+  ansible.builtin.command: which go
+  register: outit
+- debug: msg="{{ outit.stdout }}"
 - name: Install recordgetter
   ansible.builtin.command: go install github.com/brotherlogic/recordgetter/recordgetter_cli@latest
 - name: Install recordcleaner

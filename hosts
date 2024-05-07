@@ -4,9 +4,6 @@ toru
 [dev]
 192.168.86.22 # toru.lan.
 192.168.86.63 # rst.lan.
-192.168.86.49 # rosington.lan.
-192.168.86.54 # rooroo.lan.
-192.168.86.70 # rosington.lan.
 192.168.86.71 # rose.lan.
 
 [raspberrypi]
@@ -20,4 +17,3 @@ toru
 192.168.86.100 # newrunner.lan.
 192.168.86.64 # nas.lan.
 192.168.86.76 # framethree.lan.
-192.168.86.54 # rooroo.lan.
