@@ -4,7 +4,7 @@
       - go
     classic: true
 - name: Install recordgetter
-  ansible.builtin.command: go install github.com/brotherlogic/{item}}/{item}}_cli@latest
+  ansible.builtin.command: go install github.com/brotherlogic/{{ item }}/{{ item }}_cli@latest
   loop:
     - recordgetter
     - recordcleaner
