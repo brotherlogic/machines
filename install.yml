@@ -7,3 +7,12 @@
     - zsh
     - kubectl
     - golang
+
+- name: Runs post processing hook on all machines
+  hosts: all
+  vars_files:
+    - secret
+  vars:
+    github_head: "{{ lookup('file', '.git/refs/heads/main') }}"
+  tasks:
+    - include: post.yml
