@@ -3,3 +3,19 @@ toru
 
 [dev]
 192.168.86.22 # toru.lan.
+192.168.86.54 # rooroo.lan.
+
+[raspberrypi]
+192.168.86.67 # kclust2.
+192.168.86.202 # cd.lan.
+192.168.86.44 # argon.lan.
+192.168.86.69 # kclust4.
+192.168.86.72 # kclust3.
+192.168.86.201 # mdisplay.lan.
+192.168.86.52 # kclust1.
+192.168.86.100 # newrunner.lan.
+192.168.86.64 # nas.lan.
+192.168.86.76 # framethree.lan.
+192.168.86.54 # rooroo.lan.
+192.168.86.54 # argon5.lan.
+192.168.86.66 # argon4.lan.
