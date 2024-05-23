@@ -3,4 +3,4 @@
     msg: System {{ ansible_facts['os_family'] }}; Distr {{ ansible_distribution|lower}}; Also {{ ansible_lsb }}
 - name: Install golang for Ubuntu servers
   import_tasks: debian.yml
-  when: ansible_distribution|lower == 'system debian; distr ubuntu'
+  when: ansible_distribution == 'System Debian; Distr ubuntu;'
