@@ -8,3 +8,5 @@ toru
 [raspberrypi]
 192.168.86.67 # kclust2.
 192.168.86.202 # cd.lan.
+192.168.86.44 # argon.lan.
+192.168.86.69 # kclust4.
