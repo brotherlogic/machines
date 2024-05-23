@@ -1,6 +1,6 @@
 - name: Print distribution
   ansible.builtin.debug:
-    msg: System {{ ansible_facts['os_family'] }}; Distr {{ ansible_distribution }}; Also {{ ansible_lsb }}
+    msg: System {{ ansible_facts['os_family'] }}; Distr {{ ansible_distribution|lower}}; Also {{ ansible_lsb }}
 - name: Install golang for Ubuntu servers
   import_tasks: debian.yml
   when: ansible_distribution|lower == 'system debian; distr ubuntu'
