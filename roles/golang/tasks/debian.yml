@@ -1,11 +1,11 @@
+- name: Print distribution
+  ansible.builtin.debug:
+    msg: System {{ ansible_facts['os_family'] }}
 - name: Install golang
   community.general.snap:
     name:
       - go
     classic: true
-- name: Print distribution
-  ansible.builtin.debug:
-    msg: System {{ ansible_facts['os_family'] }}
 - name: Install recordgetter
   ansible.builtin.command: go install github.com/brotherlogic/{{ item }}/{{ item }}_cli@latest
   loop:
