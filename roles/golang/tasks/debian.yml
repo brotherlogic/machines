@@ -1,6 +1,6 @@
 - name: Print distribution
   ansible.builtin.debug:
-    msg: System {{ ansible_facts['os_family'] }}
+    msg: System {{ ansible_facts['os_family'] }}; Distr {{ ansible_facts['ansible_distribution'] }}
 - name: Install golang
   community.general.snap:
     name:
