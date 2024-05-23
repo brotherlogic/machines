@@ -4,7 +4,6 @@ git fetch -pq
 git merge -q origin/main
 if diff chead .git/refs/heads/main; then
 else
-    export GOROOT=/usr/lib/go
     go build
     ./machines kclust1:31290 > hosts
 
