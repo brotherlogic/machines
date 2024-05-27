@@ -14,5 +14,6 @@
     - secret
   vars:
     github_head: "{{ lookup('file', '.git/refs/heads/main') }}"
+    current_timestamp: "{{ ansible_date_time.epoch }}"
   tasks:
     - include: post.yml

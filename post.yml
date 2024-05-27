@@ -1,2 +1,4 @@
 - ansible.builtin.debug:
-    msg: "the value of head is {{ github_head }}"
+      msg: "the value of head is {{ github_head }}"
+- ansible.builtin.debug:
+      msg: "the value of head is {{ current_timestamp }}"
