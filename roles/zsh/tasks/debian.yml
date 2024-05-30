@@ -1,11 +1,13 @@
 # Install ZSH
 - name: Install ZSH
+  become: true
   ansible.builtin.apt:
     name: "zsh"
     state: present
 
 # Install Git
 - name: Install Git
+  become: true
   ansible.builtin.apt:
     name: "git"
     state: present
@@ -19,5 +21,18 @@
 
 - name: Change user shell to zsh
   ansible.builtin.user:
+    become:
     name: "simon"
     shell: /bin/zsh
+
+- name: Set zsh theme to robbyrussel
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    regexp: '^ZSH_THEME'
+    line: ZSH_THEME="robbyrussell"
+
+- name: Setup path to include golang
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    line: path+=('/home/simon/go/bin/')
+    create: yes

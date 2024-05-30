@@ -1,6 +1,5 @@
 - name: Runs updates for all dev machines
   hosts: dev
-  become: true
   vars_files:
     - secret
   roles:
