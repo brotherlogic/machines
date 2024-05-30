@@ -1,4 +1,9 @@
 - ansible.builtin.debug:
-      msg: "the value of head is {{ github_head }}"
+        msg: "the value of head is {{ github_head }}"
 - ansible.builtin.debug:
-      msg: "the value of head is {{ current_timestamp }}"
+        msg: "the value of head is {{ current_timestamp }}"
+- name: Install mdb_cli
+  ansible.builtin.command: go install github.com/brotherlogic/mdb/mdb_cli@latest
+- name: Set the version for this node
+  ansible.builtin.debug:
+        msg: "mdb_cli set_version {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }} {{  github_head }}"
