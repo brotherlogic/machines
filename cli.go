@@ -44,7 +44,7 @@ func main() {
 
 	resp, err := client.ListMachines(ctx, &pb.ListMachinesRequest{})
 	if err != nil {
-		log.Fatalf("Unable to drain queue: %v", err)
+		log.Fatalf("Unable to get machine list: %v", err)
 	}
 
 	fmt.Printf("[host]\ntoru\n\n")
