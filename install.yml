@@ -5,6 +5,15 @@
   roles:
     - zsh
     - kubectl
+    - golang
+  tasks:
+    - name: Install go programs
+      ansible.builtin.command: go install github.com/brotherlogic/{{ item }}/{{ item }}_cli@latest
+      loop:
+        - recordgetter
+        - recordcleaner
+        - recordcollection
+        - fokus
 
 - name: Runs post processing hook on all machines
   hosts: all
