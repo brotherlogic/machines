@@ -6,7 +6,7 @@
     - zsh
     - kubectl
     - golang
-  tasks:
+  post_tasks:
     - name: Install go programs
       ansible.builtin.command: go install github.com/brotherlogic/{{ item }}/{{ item }}_cli@latest
       loop:
