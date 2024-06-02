@@ -21,7 +21,6 @@
 
 - name: Change user shell to zsh
   ansible.builtin.user:
-    become:
     name: "simon"
     shell: /bin/zsh
 
