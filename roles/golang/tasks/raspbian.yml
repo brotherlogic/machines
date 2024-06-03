@@ -1,0 +1,4 @@
+- name: Vanilla install of golang
+  apt:
+    update-cache: yes
+    name: golang
