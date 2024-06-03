@@ -1,9 +1,0 @@
-[host]
-toru
-
-[dev]
-192.168.86.22 # toru.lan.
-192.168.86.63 # rst.lan.
-192.168.86.54 # rooroo.lan.
-
-[raspberrypi]
