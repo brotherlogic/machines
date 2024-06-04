@@ -5,5 +5,5 @@
   import_tasks: debian.yml
   when: ansible_distribution == 'Ubuntu'
 - name: Install golang for Raspbian servers
-  import_tasks: radpbian.yml
+  import_tasks: raspbian.yml
   when: ansible_distribution == 'Debian'
