@@ -17,6 +17,8 @@ import (
 	pb "github.com/brotherlogic/mdb/proto"
 )
 
+var ()
+
 func ipv4ToString(ipv4 uint32) string {
 	ip := make(net.IP, 4)
 	binary.BigEndian.PutUint32(ip, ipv4)
@@ -53,7 +55,9 @@ func main() {
 	for _, machine := range resp.GetMachines() {
 		if machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_DESKTOP || machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_SERVER {
 			if reachable(ipv4ToString(machine.GetIpv4())) {
-				fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+				if time.Since(time.Unix(machine.GetLastUpdated(), 0)) > time.Hour*24 {
+					fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+				}
 			}
 		}
 	}
@@ -63,7 +67,9 @@ func main() {
 		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
 			if !strings.Contains(machine.GetHostname(), "homeassistant") {
 				if reachable(ipv4ToString(machine.GetIpv4())) {
-					fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+					if time.Since(time.Unix(machine.GetLastUpdated(), 0)) > time.Hour*24 {
+						fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+					}
 				}
 			}
 		}
