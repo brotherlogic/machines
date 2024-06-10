@@ -1,0 +1,4 @@
+- name: Install Golang Raspbian
+  ansible.builtin.apt:
+    name: "golang"
+    state: present
