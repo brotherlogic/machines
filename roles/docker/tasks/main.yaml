@@ -1,0 +1,26 @@
+- name: Install apt packages
+  become: true
+  apt:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+- name: run GPG
+  become: true
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/trusted.gpg.d/docker.asc
+    mode: "0644"
+    force: true
+- name: install docker
+  become: true
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+    - docker
+#      - docker-ce-cli
+#      - containerd.io
+#      - docker-compose-plugin
