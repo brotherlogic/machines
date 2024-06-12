@@ -25,5 +25,6 @@
     current_timestamp: "{{ ansible_date_time.epoch }}"
   roles:
     - golang
+    - base
   post_tasks:
     - include: post.yml

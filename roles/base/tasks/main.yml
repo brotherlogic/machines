@@ -1,0 +1,9 @@
+- name: Installs base software for our machines
+  become: true
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+      - ntpd
+      - ssmtp
