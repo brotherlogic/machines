@@ -1,4 +1,3 @@
----
 - name: Initialize the host machine
   hosts: host
   tasks:
@@ -12,8 +11,14 @@
     - name: Add a cron entry to run the install script if the git repo changes
       ansible.builtin.cron:
         name: "Install Machines"
-        minute: "*/5"
+        hour: "*/1"
         job: "/home/simon/machines/run.sh"
+    - name: Add a cron entry to update the kubernetes cluster
+      ansible.builtin.cron:
+        name: "Update Kubernetes"
+        minute: "0"
+        hour: "2"
+        job: "/home/simon/cluster/rebuild.sh"
     - name: Suppress ansible output
       ansible.builtin.blockinfile:
         path: /home/simon/.ansible.cfg
