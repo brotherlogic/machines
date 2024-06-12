@@ -1,22 +1,27 @@
----
 - name: Initialize the host machine
   hosts: host
   tasks:
-  - name: Add a cron entry to update all machines every week
-    ansible.builtin.cron:
-      name: "Update Machines"
-      minute: "0"
-      hour: "2"
-      weekday: "0"
-      job: "ansible-playbook --vault-password-file=/home/simon/machines/.vault_pass /home/simon/machines/update.yml"
-  - name: Add a cron entry to run the install script if the git repo changes
-    ansible.builtin.cron:
-      name: "Install Machines"
-      minute: "*/5"
-      job: "/home/simon/machines/run.sh"
-  - name: Suppress ansible output
-    ansible.builtin.blockinfile:
-      path: /home/simon/.ansible.cfg
-      block: |
-        [defaults]
-        inventory  = /home/simon/machines/hosts
+    - name: Add a cron entry to update all machines every week
+      ansible.builtin.cron:
+        name: "Update Machines"
+        minute: "0"
+        hour: "2"
+        weekday: "0"
+        job: "ansible-playbook --vault-password-file=/home/simon/machines/.vault_pass /home/simon/machines/update.yml"
+    - name: Add a cron entry to run the install script if the git repo changes
+      ansible.builtin.cron:
+        name: "Install Machines"
+        hour: "*/1"
+        job: "/home/simon/machines/run.sh"
+    - name: Add a cron entry to update the kubernetes cluster
+      ansible.builtin.cron:
+        name: "Update Kubernetes"
+        minute: "0"
+        hour: "2"
+        job: "/home/simon/cluster/rebuild.sh"
+    - name: Suppress ansible output
+      ansible.builtin.blockinfile:
+        path: /home/simon/.ansible.cfg
+        block: |
+          [defaults]
+          inventory  = /home/simon/machines/hosts
