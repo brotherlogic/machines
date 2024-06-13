@@ -5,5 +5,5 @@
     state: latest
     update_cache: yes
   loop:
-      - ntpd
-      - ssmtp
+    - ntp
+    - ssmtp
