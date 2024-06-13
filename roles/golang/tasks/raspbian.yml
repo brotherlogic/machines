@@ -9,6 +9,7 @@
   register: cver
 
 - name: Install new version of go
+  become: true
   block:
     - debug: var="{{item}}"
       with_items:
