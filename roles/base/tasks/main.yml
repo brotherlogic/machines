@@ -7,3 +7,4 @@
   loop:
     - ntp
     - ssmtp
+    - ca-certificates
