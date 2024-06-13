@@ -1,4 +1,5 @@
 - name: Install golang (Debian)
+  become: true
   community.general.snap:
     name:
       - go
