@@ -9,6 +9,7 @@
   register: cver
 
 - name: Install new version of go
+  become: true
   block:
     - debug: var="{{item}}"
       with_items:
@@ -52,4 +53,4 @@
       file:
         path: /tmp/go-download.tar.gz
         state: absent
-  when: cver.stdout|string != "go version go1.20.1 linux/amd64"
+  when: cver.stdout|string != "go version go1.22.1 linux/arm"

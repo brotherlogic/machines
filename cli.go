@@ -49,7 +49,7 @@ func main() {
 		log.Fatalf("Unable to get machine list: %v", err)
 	}
 
-	fmt.Printf("[host]\ntoru\n\n")
+	fmt.Printf("[host]\n192.168.86.22 # toru\n\n")
 
 	fmt.Printf("[dev]\n")
 	for _, machine := range resp.GetMachines() {

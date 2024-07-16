@@ -7,13 +7,17 @@ toru
 
 [raspberrypi]
 192.168.86.67 # kclust2.
-192.168.86.202 # cd.lan.
 192.168.86.44 # argon.lan.
-192.168.86.201 # mdisplay.lan.
 192.168.86.52 # kclust1.
 192.168.86.100 # newrunner.lan.
-192.168.86.73 # nas.lan.
-192.168.86.76 # framethree.lan.
 192.168.86.54 # rooroo.lan.
 192.168.86.54 # argon5.lan.
 192.168.86.66 # argon4.lan.
+192.168.86.84 # tclust4.lan.
+192.168.86.85 # tclust2.lan.
+192.168.86.86 # tclust1.lan.
+192.168.86.71 # tclust3.lan.
+192.168.86.71 # tclust3.
+192.168.86.84 # tclust4.
+192.168.86.85 # tclust2.
+192.168.86.86 # tclust1.
