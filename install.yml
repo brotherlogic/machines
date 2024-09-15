@@ -3,18 +3,7 @@
   vars_files:
     - secret
   roles:
-    - zsh
-    - kubectl
-    - golang
-    - docker
-  post_tasks:
-    - name: Install go programs
-      ansible.builtin.command: go install github.com/brotherlogic/{{ item }}/{{ item }}_cli@latest
-      loop:
-        - recordgetter
-        - recordcleaner
-        - recordcollection
-        - fokus
+    - chrome
 
 - name: Runs post processing hook on all machines
   hosts: all

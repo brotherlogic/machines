@@ -46,32 +46,32 @@ func main() {
 
 	resp, err := client.ListMachines(ctx, &pb.ListMachinesRequest{})
 	if err != nil {
-		log.Fatalf("Unable to get machine list: %v", err)
+		log.Fatalf("Unable to get machine list: %v -> %v", err, resp)
 	}
 
 	fmt.Printf("[host]\n192.168.86.22 # toru\n\n")
 
 	fmt.Printf("[dev]\n")
-	for _, machine := range resp.GetMachines() {
-		if machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_DESKTOP || machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_SERVER {
-			if reachable(ipv4ToString(machine.GetIpv4())) {
-				if time.Since(time.Unix(machine.GetLastUpdated(), 0)) > time.Hour*24 {
-					fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
-				}
-			}
-		}
-	}
+	fmt.Printf("192.168.86.77 # rst.lan\n")
+	//for _, machine := range resp.GetMachines() {
+	//	if machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_DESKTOP || machine.GetUse() == pb.MachineUse_MACHINE_USE_DEV_SERVER {
+	//		if reachable(ipv4ToString(machine.GetIpv4())) && machine.GetHostname() == "pop-os.lan"{
+	//				fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+	//			
+	//		}
+	//	}
+	//}
 
-	fmt.Printf("\n[raspberrypi]\n")
-	for _, machine := range resp.GetMachines() {
-		if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
-			if !strings.Contains(machine.GetHostname(), "homeassistant") {
-				if reachable(ipv4ToString(machine.GetIpv4())) {
-					if time.Since(time.Unix(machine.GetLastUpdated(), 0)) > time.Hour*24 {
-						fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
-					}
-				}
-			}
-		}
-	}
+	//fmt.Printf("\n[raspberrypi]\n")
+	//for _, machine := range resp.GetMachines() {
+	//	if machine.GetType() == pb.MachineType_MACHINE_TYPE_RASPBERRY_PI {
+	//		if !strings.Contains(machine.GetHostname(), "homeassistant") {
+	//			if reachable(ipv4ToString(machine.GetIpv4())) {
+	//				if time.Since(time.Unix(machine.GetLastUpdated(), 0)) > time.Hour*24 {
+	//					fmt.Printf("%v # %v\n", ipv4ToString(machine.GetIpv4()), machine.GetHostname())
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 }
