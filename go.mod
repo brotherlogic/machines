@@ -4,7 +4,7 @@ go 1.22.1
 
 require (
 	github.com/brotherlogic/mdb v0.102.0
-	google.golang.org/grpc v1.64.0
+	google.golang.org/grpc v1.64.1
 )
 
 require (
